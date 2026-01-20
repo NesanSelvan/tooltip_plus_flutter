@@ -129,7 +129,6 @@ The `TooltipTarget` widget offers extensive configuration options.
 | `blur` | `TooltipBlurConfig` | `const` | Configuration for background blur effects (glassmorphism). |
 | `border` | `TooltipBorderConfig` | `const` | Configuration for tooltip borders. |
 
-
 ### Config Classes
 
 **TooltipShadowConfig**
