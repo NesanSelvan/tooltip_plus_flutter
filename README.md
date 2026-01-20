@@ -1,4 +1,4 @@
-# tooltip_plus_flutter
+# tooltip_pro
 
 A powerful and flexible tooltip package for Flutter that goes beyond simple text. Create beautiful, highly customizable tooltips with rich content, shadows, blurs, and precise control over positioning and styling.
 
@@ -14,11 +14,11 @@ A powerful and flexible tooltip package for Flutter that goes beyond simple text
 
 ## Getting started
 
-Add `tooltip_plus_flutter` to your `pubspec.yaml`:
+Add `tooltip_pro` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  tooltip_plus_flutter: ^0.0.1
+  tooltip_pro: ^0.0.1
 ```
 
 ## Usage

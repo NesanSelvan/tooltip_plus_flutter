@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tooltip_plus_flutter/tooltip_plus_flutter.dart';
+import 'package:tooltip_pro/tooltip_pro.dart';
 
 void main() {
   test('TooltipTarget creates successfully', () {
