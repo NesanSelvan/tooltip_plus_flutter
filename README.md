@@ -91,20 +91,76 @@ TooltipTarget.error(
 
 ## Configuration
 
-The `TooltipTarget` widget offers extensive configuration options:
+The `TooltipTarget` widget offers extensive configuration options.
 
-| Parameter | Type | Description |
-|---|---|---|
-| `direction` | `TooltipDirection` | Top, Bottom, Left, or Right. |
-| `arrowDirection` | `TooltipArrowDirection` | Direction the arrow points (usually matches `direction`). |
-| `arrowWidth` | `double` | Width of the arrow base. |
-| `arrowHeight` | `double` | Height of the arrow. |
-| `customArrowOffset` | `double` | Relative position of the arrow (0.0 to 1.0). |
-| `tooltipHeight/Width` | `double` | Dimensions of the tooltip container. |
-| `shadow` | `TooltipShadowConfig` | Configure shadow blur, color, and elevation. |
-| `blur` | `TooltipBlurConfig` | Apply a blur effect to the background behind the tooltip. |
-| `border` | `TooltipBorderConfig` | Configure border color, width, and radius. |
-| `autoDismiss` | `Duration?` | automatically close the tooltip after this duration. |
+### General
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `child` | `Widget` | **required** | The widget that will trigger the tooltip when tapped. |
+| `tooltipContent` | `Widget?` | `null` | The content to display inside the tooltip. |
+| `tooltipContentBuilder` | `Widget Function?` | `null` | A builder for the content, giving access to `context` and `hideTooltip` callback. |
+| `tooltipBuilder` | `Widget Function?` | `null` | A builder for the entire tooltip target content. |
+| `onPressed` | `VoidCallback?` | `null` | Callback triggered when the target is pressed. |
+| `autoDismiss` | `Duration?` | `3s` | Time before the tooltip automatically closes. |
+
+### Positioning & Dimensions
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `direction` | `TooltipDirection` | `top` | Position relative to the child (top, bottom, left, right). |
+| `tooltipHeight` | `double` | `50.0` | Height of the tooltip container. |
+| `tooltipWidth` | `double` | `50.0` | Width of the tooltip container. |
+| `spacing` | `double` | `10.0` | Distance between the target child and the tooltip. |
+| `horizontalPadding` | `double` | `0.0` | Horizontal padding adjustment. |
+| `verticalPadding` | `double` | `0.0` | Vertical padding adjustment. |
+
+### Arrow Customization
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `arrowDirection` | `TooltipArrowDirection` | `center` | Direction the arrow points relative to the tooltip edge. |
+| `customArrowOffset` | `double` | `0.5` | Precise position of the arrow along the edge (0.0 to 1.0). |
+| `arrowWidth` | `double` | `12.0` | Width of the arrow base in logical pixels. |
+| `arrowHeight` | `double` | `10.0` | Height of the arrow in logical pixels. |
+
+### Styling
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `tooltipColor` | `Color?` | `null` | Background color of the tooltip bubble. |
+| `shadow` | `TooltipShadowConfig` | `const` | Configuration for drop shadows. |
+| `blur` | `TooltipBlurConfig` | `const` | Configuration for background blur effects (glassmorphism). |
+| `border` | `TooltipBorderConfig` | `const` | Configuration for tooltip borders. |
+
+
+### Config Classes
+
+**TooltipShadowConfig**
+```dart
+TooltipShadowConfig({
+  bool enabled = false,
+  Color? color,       // Shadow color
+  double elevation,   // Elevation strength
+  double blurRadius,  // Blur amount
+})
+```
+
+**TooltipBlurConfig**
+```dart
+TooltipBlurConfig({
+  bool enabled = false,
+  double sigma,         // Blur strength (default: 5.0)
+  Color? color,         // Tint color for the blur
+  bool includeChild,    // Whether to blur the child widget too (default: false)
+})
+```
+
+**TooltipBorderConfig**
+```dart
+TooltipBorderConfig({
+  bool enabled = false,
+  Color color,        // Border color
+  double width,       // Border width
+  double radius,      // Corner radius
+})
+```
 
 ## License
 
