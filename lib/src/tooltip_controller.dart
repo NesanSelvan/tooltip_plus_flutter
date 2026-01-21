@@ -44,6 +44,7 @@ class TooltipController {
     VoidCallback? onDismiss,
     double arrowWidth = 12.0,
     double arrowHeight = 10.0,
+    Offset? touchPoint,
   }) {
     hide();
     _onDismiss = onDismiss;
@@ -55,10 +56,12 @@ class TooltipController {
     final position = renderBox.localToGlobal(Offset.zero);
     final targetSize = renderBox.size;
 
-    final centerPosition = Offset(
-      position.dx + targetSize.width / 2,
-      position.dy + targetSize.height / 2,
-    );
+    final centerPosition =
+        touchPoint ??
+        Offset(
+          position.dx + targetSize.width / 2,
+          position.dy + targetSize.height / 2,
+        );
 
     final screenSize = MediaQuery.of(context).size;
 

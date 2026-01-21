@@ -25,6 +25,7 @@ class TooltipPro extends StatefulWidget {
   final TooltipBlurConfig blur;
   final TooltipBorderConfig border;
   final Widget? tooltipContent;
+  final bool showAtTapPosition;
 
   final Widget Function(BuildContext context, VoidCallback hideTooltip)?
   tooltipContentBuilder;
@@ -54,6 +55,7 @@ class TooltipPro extends StatefulWidget {
     this.tooltipBuilder,
     this.arrowWidth = 12.0,
     this.arrowHeight = 10.0,
+    this.showAtTapPosition = false,
   });
 
   /// A minimal tooltip with just text.
@@ -78,10 +80,12 @@ class TooltipPro extends StatefulWidget {
     double customArrowOffset = 0.5,
     double arrowWidth = 12.0,
     double arrowHeight = 10.0,
+    bool showAtTapPosition = false,
   }) {
     return TooltipPro(
       key: key,
       direction: direction,
+      showAtTapPosition: showAtTapPosition,
       tooltipColor: tooltipColor ?? const Color(0xFF1E1E1E),
       tooltipHeight: tooltipHeight,
       tooltipWidth: tooltipWidth,
@@ -132,10 +136,12 @@ class TooltipPro extends StatefulWidget {
     double customArrowOffset = 0.5,
     double arrowWidth = 12.0,
     double arrowHeight = 10.0,
+    bool showAtTapPosition = false,
   }) {
     return TooltipPro(
       key: key,
       direction: direction,
+      showAtTapPosition: showAtTapPosition,
       tooltipColor: tooltipColor ?? Colors.white,
       tooltipHeight: tooltipHeight,
       tooltipWidth: tooltipWidth,
@@ -236,10 +242,12 @@ class TooltipPro extends StatefulWidget {
     double customArrowOffset = 0.2,
     double arrowWidth = 12.0,
     double arrowHeight = 10.0,
+    bool showAtTapPosition = false,
   }) {
     return TooltipPro(
       key: key,
       direction: direction,
+      showAtTapPosition: showAtTapPosition,
       tooltipColor: tooltipColor ?? const Color(0xFFFEF2F2),
       tooltipHeight: tooltipHeight,
       tooltipWidth: tooltipWidth,
@@ -298,6 +306,7 @@ class TooltipPro extends StatefulWidget {
 class TooltipProState extends State<TooltipPro> {
   final GlobalKey _targetKey = GlobalKey();
   late final TooltipController _controller;
+  Offset? _tapPosition;
 
   @override
   void initState() {
@@ -350,6 +359,7 @@ class TooltipProState extends State<TooltipPro> {
         horizontalPadding: widget.horizontalPadding,
         verticalPadding: widget.verticalPadding,
       ),
+      touchPoint: widget.showAtTapPosition ? _tapPosition : null,
     );
     widget.onPressed?.call();
   }
@@ -358,6 +368,9 @@ class TooltipProState extends State<TooltipPro> {
   Widget build(BuildContext context) {
     return GestureDetector(
       key: _targetKey,
+      onTapDown: (details) {
+        _tapPosition = details.globalPosition;
+      },
       onTap: _showTooltip,
       child: widget.child,
     );

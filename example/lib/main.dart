@@ -51,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             const Text('You have pushed the button this many times:'),
             TooltipPro.minimal(
+              showAtTapPosition: true,
               text: "Counter: $_counter",
               child: Text(
                 '$_counter',
