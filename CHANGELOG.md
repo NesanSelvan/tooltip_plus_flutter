@@ -1,3 +1,14 @@
+## 0.0.5
+
+* **Update**: Comprehensive documentation update.
+* **Feature**: Added `showAtTapPosition` to display tooltip exactly where the user tapped.
+* **Feature**: Enhanced Arrow Customization with `arrowWidth`, `arrowHeight` and `TooltipArrowDirection.custom`.
+
+## 0.0.4
+
+* **Fix**: Resolves layout issues with arrow positioning.
+* **Feature**: Exposed granular control for arrow dimensions and offsets.
+
 ## 0.0.3
 
 * **Bug Fix**: Fixed rendering artifacts when `borderRadius` is large relative to the tooltip size. Correctly clamps radius to prevent path inversions.
