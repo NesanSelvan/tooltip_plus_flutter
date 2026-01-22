@@ -1,3 +1,8 @@
+## 0.0.6
+
+* **Documentation**: Updated README with comprehensive usage examples and API reference.
+* **Assets**: Added demo screenshots to the package.
+
 ## 0.0.5
 
 * **Update**: Comprehensive documentation update.
